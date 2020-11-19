@@ -3,5 +3,128 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "dynamic-fields-usecase": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/dynamic-fields-usecase",
+      "sourceRoot": "projects/dynamic-fields-usecase/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/dynamic-fields-usecase",
+            "index": "projects/dynamic-fields-usecase/src/index.html",
+            "main": "projects/dynamic-fields-usecase/src/main.ts",
+            "polyfills": "projects/dynamic-fields-usecase/src/polyfills.ts",
+            "tsConfig": "projects/dynamic-fields-usecase/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/dynamic-fields-usecase/src/favicon.ico",
+              "projects/dynamic-fields-usecase/src/assets"
+            ],
+            "styles": [
+              "projects/dynamic-fields-usecase/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/dynamic-fields-usecase/src/environments/environment.ts",
+                  "with": "projects/dynamic-fields-usecase/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "dynamic-fields-usecase:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "dynamic-fields-usecase:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "dynamic-fields-usecase:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/dynamic-fields-usecase/src/test.ts",
+            "polyfills": "projects/dynamic-fields-usecase/src/polyfills.ts",
+            "tsConfig": "projects/dynamic-fields-usecase/tsconfig.spec.json",
+            "karmaConfig": "projects/dynamic-fields-usecase/karma.conf.js",
+            "assets": [
+              "projects/dynamic-fields-usecase/src/favicon.ico",
+              "projects/dynamic-fields-usecase/src/assets"
+            ],
+            "styles": [
+              "projects/dynamic-fields-usecase/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/dynamic-fields-usecase/tsconfig.app.json",
+              "projects/dynamic-fields-usecase/tsconfig.spec.json",
+              "projects/dynamic-fields-usecase/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/dynamic-fields-usecase/e2e/protractor.conf.js",
+            "devServerTarget": "dynamic-fields-usecase:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "dynamic-fields-usecase:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "cli": {
+    "analytics": false
+  },
+  "defaultProject": "dynamic-fields-usecase"
 }
