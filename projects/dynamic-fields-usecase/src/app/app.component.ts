@@ -20,13 +20,13 @@ export class AppComponent {
 	}
 	formGroup!: FormGroup;
 	constructor(private _formBuilder: FormBuilder) { }
+
 	ngOnInit() {
 		this._initialise();
+	}
 
-		this.formGroup.valueChanges.subscribe(e => {
-			console.log(e);
-
-		})
+	$$save() {
+		console.log(this.formGroup.value);
 	}
 
 	private _initialise() {

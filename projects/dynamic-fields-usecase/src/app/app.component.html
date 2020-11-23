@@ -1,5 +1,6 @@
 <h2> Test Dynamic Forms</h2>
 <form [formGroup]="formGroup">
-	<lib-dynamic-field [field]="fieldType"></lib-dynamic-field>
-	<button mat-button>Click Me</button>
+	<!-- <lib-dynamic-field [field]="fieldType"></lib-dynamic-field> -->
+	<dyn-field-value-accessor [field]="fieldType" formControlName="email"></dyn-field-value-accessor>
+	<button mat-button (click)="$$save()">Click Me</button>
 </form>

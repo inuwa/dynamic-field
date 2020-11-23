@@ -13,4 +13,5 @@ export interface Field {
 	validation?: Validators[];
 	visible?: boolean;
 	errors?: KeyValue<string, string>[];
+	readonly?: boolean;
 }

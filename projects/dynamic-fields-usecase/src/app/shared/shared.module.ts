@@ -9,14 +9,19 @@ import { MatListModule } from '@angular/material/list';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SentenceCasePipe } from './sentence-case.pipe';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DynFieldValueAccessorComponent } from './dyn-field-value-accessor/dyn-field-value-accessor.component';
 
 @NgModule({
-	declarations: [DynamicFieldComponent, SentenceCasePipe],
+	declarations: [
+		DynamicFieldComponent,
+		SentenceCasePipe,
+		DynFieldValueAccessorComponent
+	],
 	imports: [
 		CommonModule,
+		FormsModule,
 		ReactiveFormsModule,
 		MatCheckboxModule,
 		MatDatepickerModule,
@@ -26,10 +31,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 		MatRadioModule,
 		MatSelectModule,
 		MatSlideToggleModule,
-		BrowserAnimationsModule
 	],
 	exports: [
-		DynamicFieldComponent
+		DynamicFieldComponent,
+		DynFieldValueAccessorComponent
 	]
 })
 export class SharedModule { }
